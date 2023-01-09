@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "580314636283",
+    "project_id": "comunityfinal",
+    "storage_bucket": "comunityfinal.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:580314636283:android:ef7c09082e750c064af55e",
+        "android_client_info": {
+          "package_name": "com.rbt.comunity"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "580314636283-l9lksih11t73ouo1g4v3fpm90r06ogbk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDvQnt1kiJvj8oOibFkVtBIqY5w18IQlUg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "580314636283-l9lksih11t73ouo1g4v3fpm90r06ogbk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
