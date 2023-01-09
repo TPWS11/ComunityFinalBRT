@@ -74,31 +74,31 @@
             >
             <ImageView
                 android:id="@+id/iv_like"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="15dp"
                 android:src="@drawable/love" />
             <ImageView
                 android:id="@+id/iv_chat"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:layout_centerVertical="true"
                 android:layout_toRightOf="@+id/iv_like"
                 android:layout_marginRight="15dp"
                 android:src="@drawable/chat" />
             <ImageView
                 android:id="@+id/iv_share"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:layout_centerVertical="true"
                 android:layout_toRightOf="@+id/iv_chat"
                 app:tint="@color/black"
                 android:src="@drawable/send" />
             <ImageView
                 android:id="@+id/iv_download"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
                 android:src="@drawable/download" />

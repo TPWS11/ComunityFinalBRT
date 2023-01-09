@@ -33,6 +33,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder>{
     public PostAdapter(Context context, List<ModelPost> posts) {
         this.context = context;
         this.posts = posts;
+        user = FirebaseAuth.getInstance().getCurrentUser();
     }
 
     @NonNull
@@ -44,8 +45,6 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder>{
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-
-        user = FirebaseAuth.getInstance().getCurrentUser();
 
         ModelPost post = posts.get(position);
         Picasso.get().load(post.getImageurl()).into(holder.iv_post);
@@ -71,6 +70,19 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder>{
 
             }
         });
+        holder.iv_like.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (holder.iv_like.getTag().equals("like")) {
+                    FirebaseDatabase.getInstance().getReference().child("Likes").child(post.getPostid()).child(user.getUid()).setValue(true);
+                } else {
+                    FirebaseDatabase.getInstance().getReference().child("Likes").child(post.getPostid()).child(user.getUid()).removeValue();
+                }
+            }
+        });
+
+        isLike(post.getPostid(), holder.iv_like);
+        jumLike(post.getPostid(), holder.jumLike);
     }
 
     @Override
@@ -98,5 +110,39 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder>{
             description = itemView.findViewById(R.id.tv_desc);
             jumCom = itemView.findViewById(R.id.tv_jum_comment);
         }
+    }
+
+    private void isLike(String postId, ImageView imageView) {
+        FirebaseDatabase.getInstance().getReference().child("Likes").child(postId).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.child(user.getUid()).exists()) {
+                    imageView.setImageResource(R.drawable.fav_like);
+                    imageView.setTag("liked");
+                } else {
+                    imageView.setImageResource(R.drawable.love);
+                    imageView.setTag("like");
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
+
+    private void jumLike(String postId, TextView textView) {
+        FirebaseDatabase.getInstance().getReference().child("Likes").child(postId).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                textView.setText(snapshot.getChildrenCount() + " likes");
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 }

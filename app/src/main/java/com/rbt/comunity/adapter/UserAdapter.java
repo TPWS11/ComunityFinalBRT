@@ -59,27 +59,6 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder>{
 
     }
 
-    private void followed(String id, CardView cd_add) {
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("Follow").child(fu.getUid())
-                .child("following");
-        reference.addValueEventListener(new ValueEventListener() {
-            @SuppressLint("ResourceAsColor")
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if (snapshot.child(id).exists()) {
-                    cd_add.setCardBackgroundColor(R.color.purple_700);
-                } else {
-                    cd_add.setCardBackgroundColor(R.color.white);
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-    }
-
     @Override
     public int getItemCount() {
         return modelUsers.size();
