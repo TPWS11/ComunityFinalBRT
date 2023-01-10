@@ -33,7 +33,6 @@
             android:id="@+id/tv_bio_search"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Bio"
             android:maxLines="1" />
     </LinearLayout>
 

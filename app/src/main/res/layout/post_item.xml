@@ -41,8 +41,8 @@
                 android:textColor="#010116"
                 android:textSize="16sp" />
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
                 android:src="@drawable/more" />
@@ -56,6 +56,7 @@
             android:id="@+id/iv_post_display"
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:scaleType="centerCrop"
             app:layout_constraintDimensionRatio="1:1"
             tools:ignore="MissingConstraints"/>
     </androidx.constraintlayout.widget.ConstraintLayout>

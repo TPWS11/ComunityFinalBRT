@@ -114,8 +114,12 @@
                             android:textStyle="italic" />
 
                         <TextView
+                            android:layout_marginHorizontal="10dp"
+                            android:id="@+id/tv_bio_profil"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:textAlignment="center"
+                            android:textColor="#807D7D"
                             />
 
                         <LinearLayout

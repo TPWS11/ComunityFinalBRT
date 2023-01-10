@@ -55,7 +55,11 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder>{
         holder.username.setText(user.getUsername());
         holder.bio.setText(user.getBio());
 
-        Picasso.get().load(user.getImageurl()).placeholder(R.mipmap.ic_launcher).into(holder.imageProfil);
+        if (user.getImageurl().equals("default")) {
+            holder.imageProfil.setImageResource(R.mipmap.ic_launcher);
+        } else {
+            Picasso.get().load(user.getImageurl()).into(holder.imageProfil);
+        }
 
     }
 
