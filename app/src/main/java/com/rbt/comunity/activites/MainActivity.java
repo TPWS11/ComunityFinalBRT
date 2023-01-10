@@ -59,6 +59,16 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
+
+        Bundle intent = getIntent().getExtras();
+        if (intent != null) {
+            String profilID = intent.getString("publisherId");
+            getSharedPreferences("PROFILE", MODE_PRIVATE).edit().putString("profilId", profilID).apply();
+            getSupportFragmentManager().beginTransaction().replace(R.id.container, new UserFragment()).commit();
+        } else {
+            getSupportFragmentManager().beginTransaction().replace(R.id.container, new HomeFragment()).commit();
+
+        }
     }
     private Fragment getFragment(int itemId) {
         switch (itemId) {

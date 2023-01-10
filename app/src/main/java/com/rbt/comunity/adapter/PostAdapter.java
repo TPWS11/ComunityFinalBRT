@@ -1,6 +1,7 @@
 package com.rbt.comunity.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +18,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.rbt.comunity.R;
+import com.rbt.comunity.activites.post.CommentActivity;
 import com.rbt.comunity.model.ModelPost;
 import com.rbt.comunity.model.ModelUser;
 import com.squareup.picasso.Picasso;
@@ -81,8 +83,29 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder>{
             }
         });
 
+        holder.iv_chat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, CommentActivity.class);
+                intent.putExtra("postId", post.getPostid());
+                intent.putExtra("authorId", post.getPublisher());
+                context.startActivity(intent);
+            }
+        });
+
+        holder.jumCom.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, CommentActivity.class);
+                intent.putExtra("postId", post.getPostid());
+                intent.putExtra("authorId", post.getPublisher());
+                context.startActivity(intent);
+            }
+        });
+
         isLike(post.getPostid(), holder.iv_like);
         jumLike(post.getPostid(), holder.jumLike);
+        getComment(post.getPostid(), holder.jumCom);
     }
 
     @Override
@@ -144,5 +167,20 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder>{
 
             }
         });
+    }
+
+    private void getComment(String postId, TextView textView) {
+        FirebaseDatabase.getInstance().getReference().child("Comments").child(postId).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                textView.setText("View All " + snapshot.getChildrenCount() + " Comments");
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
     }
 }

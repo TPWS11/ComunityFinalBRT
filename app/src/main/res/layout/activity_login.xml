@@ -68,43 +68,43 @@
                 android:id="@+id/et_email_login"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="120dp"
-                android:layout_marginEnd="20dp"
                 android:background="@drawable/edit_text_background"
                 android:hint="Email"
                 android:inputType="textEmailAddress"
-                android:paddingStart="10dp" />
+                android:paddingStart="10dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="120dp" />
 
             <RelativeLayout
                 android:id="@+id/ll_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/et_email_login"
+                android:background="@drawable/edit_text_background"
                 android:layout_marginStart="20dp"
-                android:layout_marginTop="10dp"
                 android:layout_marginEnd="20dp"
-                android:background="@drawable/edit_text_background">
-
+                android:layout_marginTop="10dp"
+                android:layout_below="@id/et_email_login">
                 <EditText
                     android:id="@+id/et_pw_login"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:layout_marginEnd="45dp"
-                    android:background="@drawable/edit_text_background_pw_show"
                     android:hint="Password"
+                    android:background="@drawable/edit_text_background_pw_show"
                     android:inputType="textPassword"
-                    android:paddingStart="10dp" />
+                    android:paddingStart="10dp"
+                    android:layout_marginEnd="45dp"/>
 
                 <ImageView
                     android:id="@+id/iv_show_password"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
-                    android:layout_marginEnd="10dp"
+                    android:layout_alignParentEnd="true"
                     android:src="@drawable/password_invisible"
-                    app:tint="@color/teal_200" />
+                    app:tint="@color/teal_200"
+                    android:layout_marginEnd="10dp"
+                    />
             </RelativeLayout>
 
 
@@ -113,53 +113,50 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/ll_password"
-                android:layout_alignParentEnd="true"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="25dp"
                 android:text="Lupa Password!"
-                android:textColor="#0979CF" />
+                android:layout_marginTop="5dp"
+                android:layout_alignParentEnd="true"
+                android:textColor="#0979CF"
+                android:layout_marginRight="25dp" />
 
             <Button
                 android:id="@+id/btn_login"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/tv_forget"
-                android:layout_centerHorizontal="true"
                 android:layout_marginTop="15dp"
                 android:text="Login"
                 android:textAllCaps="false"
+                android:layout_centerHorizontal="true"
                 app:backgroundTint="@color/teal_200" />
-
             <Button
                 android:id="@+id/btn_register"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/btn_login"
-                android:layout_centerHorizontal="true"
                 android:layout_marginTop="10dp"
                 android:text="Register"
                 android:textAllCaps="false"
+                android:layout_centerHorizontal="true"
                 app:backgroundTint="@color/teal_200" />
 
             <RelativeLayout
                 android:layout_width="150dp"
                 android:layout_height="50dp"
                 android:layout_alignParentBottom="true"
-                android:layout_centerHorizontal="true"
                 android:layout_marginBottom="20dp"
+                android:layout_centerHorizontal="true"
                 android:background="@drawable/icon_background_comunity">
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_margin="5dp">
-
                     <androidx.cardview.widget.CardView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_margin="5dp"
-                        app:cardCornerRadius="5dp">
-
+                        app:cardCornerRadius="5dp"
+                        android:layout_margin="5dp">
                         <RelativeLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
